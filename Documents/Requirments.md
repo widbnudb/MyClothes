@@ -50,13 +50,23 @@
 <a name="user_interface"/>
 
 ## 3.1 Интерфейс пользователя  
-Экран меню.  
 
-Экран загрузки фотографии.  
+Экран меню.
+
+![Экран меню](https://github.com/widbnudb/MyClothes/blob/master/Images/New%20Mockup%201.png)
+
+Экран загрузки фотографии.
+
+![Экран загрузки фотографии](https://github.com/widbnudb/MyClothes/blob/master/Images/New%20Mockup%202.png)
  
-Экран лчиного гардероба.  
+Экран личного гардероба.
+
+![Экран личного гардероба](https://github.com/widbnudb/MyClothes/blob/master/Images/New%20Mockup%203.png)
   
-Экран инструкции.  
+Экран инструкции. 
+
+![Экран инструкции](https://github.com/widbnudb/MyClothes/blob/master/Images/New%20Mockup%204.png)
+
 
 <a name="user_specifications"/>
 
