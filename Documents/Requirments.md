@@ -57,7 +57,7 @@
 
 Экран загрузки фотографии.
 
-![Экран загрузки фотографии](https://github.com/widbnudb/MyClothes/blob/master/Images/New%20Mockup%202.png)
+![Экран загрузки фотографии](https://github.com/widbnudb/MyClothes/blob/master/Images/New%20Mockup%202_edit.png)
  
 Экран личного гардероба.
 
