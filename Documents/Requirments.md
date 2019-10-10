@@ -62,6 +62,10 @@
 Экран личного гардероба.
 
 ![Экран личного гардероба](https://github.com/widbnudb/MyClothes/blob/master/Images/New%20Mockup%203.png)
+
+Экран одного из раздела гардероба.
+
+![Экран одного из раздела гардероба](https://github.com/widbnudb/MyClothes/blob/master/Images/New%20Mockup%205.png)
   
 Экран инструкции. 
 
