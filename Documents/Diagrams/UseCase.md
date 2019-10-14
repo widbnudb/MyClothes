@@ -1,5 +1,5 @@
 ### Варианты использования
-
+![UseCase](https://github.com/widbnudb/MyClothes/blob/master/Images/UseCase.png)
 ### Содержание
 
 1. [Актёры](#1) <br>
