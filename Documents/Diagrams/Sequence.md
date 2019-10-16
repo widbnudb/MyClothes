@@ -1,10 +1,14 @@
 # Диаграммы последовательности
 
-- Диаграмма последовательности программы
+1. Загрузить фотографию
 
-![Диаграмма последовательности программы](https://github.com/widbnudb/MyClothes/blob/master/Images/Sequence_1.png)
+![Загрузить фотографию](https://github.com/widbnudb/MyClothes/blob/master/Images/Sequence_1.png)
 
-- Диаграмма последовательности пункта меню "Wardrobe"
+2. Просмотреть разделы "шкафа"
 
 ![Диаграмма последовательности пункта меню "Wardrobe"](https://github.com/widbnudb/MyClothes/blob/master/Images/Sequence_2.png)
+
+3. Просмотреть информацию о приложении
+
+![Просмотреть информацию о приложении](https://github.com/widbnudb/MyClothes/blob/master/Images/Sequence_3.png)
 
