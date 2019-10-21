@@ -9,9 +9,5 @@
 ![Просмотреть разделы "шкафа"](https://github.com/widbnudb/MyClothes/blob/master/Images/Sequence_2.png)
 
 3. Просмотреть информацию о приложении
-![Просмотреть информацию о приложении](https://github.com/widbnudb/MyClothes/blob/master/Images/Sequence_3.png)
-
-3. Просмотреть информацию о приложении
 
 ![Просмотреть информацию о приложении](https://github.com/widbnudb/MyClothes/blob/master/Images/Sequence_3.png)
-
