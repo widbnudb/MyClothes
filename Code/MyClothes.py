@@ -1,5 +1,6 @@
 import sys  # sys нужен для передачи argv в QApplication
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QPixmap
 import Menu  # Это наш конвертированный файл дизайна
 import Information
 import LoadPhoto
@@ -32,11 +33,25 @@ class MenuWindow(QtWidgets.QMainWindow, Menu.Ui_MainWindow):
 
 class LoadPhotoWindow(QtWidgets.QMainWindow, LoadPhoto.Ui_MainWindow):
     out_menu_window = ""
+    image_name = ".jpg"
 
     def __init__(self, parent=None):
         super(LoadPhotoWindow, self).__init__(parent)
         self.setupUi(self)
         self.pushButton.clicked.connect(self.from_load_photo_to_menu)
+        self.lineEdit.textChanged.connect(self.init_image_name)
+        self.lineEdit.editingFinished.connect(self.load_image)
+
+    def init_image_name(self):
+        if self.lineEdit.text():
+            self.image_name = self.lineEdit.text()
+
+    def load_image(self):
+        pixmap = QPixmap(self.image_name)
+        if not pixmap.isNull():
+            self.label_3.setPixmap(pixmap.scaled(self.label_3.width(), self.label_3.height()))
+        else:
+            self.lineEdit.clear()
 
     def from_load_photo_to_menu(self):
         self.out_menu_window = MenuWindow()
