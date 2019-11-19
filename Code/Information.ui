@@ -62,7 +62,7 @@ p, li { white-space: pre-wrap; }
      </rect>
     </property>
     <property name="text">
-     <string>Exit</string>
+     <string>Back</string>
     </property>
    </widget>
   </widget>

@@ -52,4 +52,4 @@ class Ui_MainWindow(object):
 "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">In &quot;Load photo&quot; you can choose photo and load it in recognizer.</span></p>\n"
 "<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">In &quot;Wardrobe&quot; you can choose folder and watch elements of clothes, which you loaded before.</span></p>\n"
 "<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;\"><br /></p></body></html>"))
-        self.pushButton.setText(_translate("MainWindow", "Exit"))
+        self.pushButton.setText(_translate("MainWindow", "Back"))
