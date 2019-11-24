@@ -1,9 +1,7 @@
 import sys  # sys нужен для передачи argv в QApplication
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtWidgets
 from PyQt5.QtGui import QPixmap
-import Menu  # Это наш конвертированный файл дизайна
-import Information
-import LoadPhoto
+from GUI import Information, LoadPhoto, Menu
 
 
 class MenuWindow(QtWidgets.QMainWindow, Menu.Ui_MainWindow):
@@ -71,7 +69,6 @@ class InfoWindow(QtWidgets.QMainWindow, Information.Ui_MainWindow):
         self.out_menu_window = MenuWindow()
         self.out_menu_window.show()
         self.close()
-
 
 def main():
     app = QtWidgets.QApplication(sys.argv)  # Новый экземпляр QApplication
