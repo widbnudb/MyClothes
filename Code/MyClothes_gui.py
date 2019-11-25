@@ -5,7 +5,7 @@ from GUI import Information, LoadPhoto, Menu
 from Recognizer import ImageHandler
 from threading import Thread
 from tensorflow.keras.models import load_model
-
+from DataBase import MyClothes_database
 
 class MenuWindow(QtWidgets.QMainWindow, Menu.Ui_MainWindow):
     info_window = ""
@@ -75,7 +75,8 @@ class LoadPhotoWindow(QtWidgets.QMainWindow, LoadPhoto.Ui_MainWindow):
         image_handler.model = self.model
         result = image_handler.recognizer(self.lineEdit.text())
         self.label_4.setText(str(result))
-        #image_handler.addtoDB(self.image_name)
+        database = MyClothes_database.DataBase()
+        database.add_to_wardrobe(result, self.lineEdit.text())
 
 
 class InfoWindow(QtWidgets.QMainWindow, Information.Ui_MainWindow):
