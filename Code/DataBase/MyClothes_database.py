@@ -27,6 +27,9 @@ class DataBase:
         return file_name_list
 
 
+new_class = DataBase()
+print(new_class.get_from_db("Bag"))
+
 
 
 

@@ -3,7 +3,6 @@ from PyQt5 import QtWidgets
 from PyQt5.QtGui import QPixmap
 from GUI import Information, LoadPhoto, Menu, Wardrobe, WardrobePart
 from Recognizer import ImageHandler
-from threading import Thread
 from tensorflow.keras.models import load_model
 from DataBase import MyClothes_database
 
@@ -53,7 +52,7 @@ class LoadPhotoWindow(QtWidgets.QMainWindow, LoadPhoto.Ui_MainWindow):
         self.pushButton.clicked.connect(self.from_load_photo_to_menu)
         self.lineEdit.textChanged.connect(self.init_image_name)
         self.pushButton_3.clicked.connect(self.load_image)
-        self.pushButton_2.clicked.connect(self.start_recognizing_thread)
+        self.pushButton_2.clicked.connect(self.start_recognizing)
 
     def init_image_name(self):
         self.pushButton_2.setEnabled(False)
@@ -73,12 +72,7 @@ class LoadPhotoWindow(QtWidgets.QMainWindow, LoadPhoto.Ui_MainWindow):
         self.out_menu_window.show()
         self.close()
 
-    def make_recognizing(self):
-        thread = Thread(target=self.start_recognizing_thread())
-        thread.start()
-        thread.join()
-
-    def start_recognizing_thread(self):
+    def start_recognizing(self):
         image_handler = ImageHandler.ImageHandler()
         image_handler.model = self.model
         result = image_handler.recognizer(self.lineEdit.text())
@@ -89,6 +83,8 @@ class LoadPhotoWindow(QtWidgets.QMainWindow, LoadPhoto.Ui_MainWindow):
 
 class WardrobeWindow(QtWidgets.QMainWindow, Wardrobe.Ui_MainWindow):
     out_menu_window = ""
+    wardrobe_part_window = ""
+    database = ""
 
     def __init__(self, parent=None):
         super(WardrobeWindow, self).__init__(parent)
@@ -110,36 +106,93 @@ class WardrobeWindow(QtWidgets.QMainWindow, Wardrobe.Ui_MainWindow):
         self.label_16.setPixmap(self.pixmap_shoes.scaled(self.label_16.width(), self.label_16.height()))
         self.label_17.setPixmap(self.pixmap_shirt.scaled(self.label_17.width(), self.label_17.height()))
         self.label_18.setPixmap(self.pixmap_bag.scaled(self.label_18.width(), self.label_18.height()))
+        self.pushButton_2.clicked.connect(self.to_Tshirts)
+        self.pushButton_3.clicked.connect(self.to_Trousers)
+        self.pushButton_4.clicked.connect(self.to_Pullovers)
+        self.pushButton_5.clicked.connect(self.to_Dresses)
+        self.pushButton_6.clicked.connect(self.to_Coats)
+        self.pushButton_7.clicked.connect(self.to_Shoes)
+        self.pushButton_8.clicked.connect(self.to_Shirts)
+        self.pushButton_9.clicked.connect(self.to_Bags)
+        self.database = MyClothes_database.DataBase()
 
     def from_wardrobe_to_menu(self):
         self.out_menu_window = MenuWindow()
         self.out_menu_window.show()
         self.close()
 
+    def to_Tshirts(self):
+        self.wardrobe_part_window = WardrobePartWindow("T-shirts", self.database.get_from_db("T-shirt"))
+        self.wardrobe_part_window.show()
+        self.close()
+
+    def to_Trousers(self):
+        self.wardrobe_part_window = WardrobePartWindow("Trousers", self.database.get_from_db("Trouser"))
+        self.wardrobe_part_window.show()
+        self.close()
+
+    def to_Pullovers(self):
+        self.wardrobe_part_window = WardrobePartWindow("Pullovers", self.database.get_from_db("Pullover"))
+        self.wardrobe_part_window.show()
+        self.close()
+
+    def to_Dresses(self):
+        self.wardrobe_part_window = WardrobePartWindow("Dresses", self.database.get_from_db("Dress"))
+        self.wardrobe_part_window.show()
+        self.close()
+
+    def to_Coats(self):
+        self.wardrobe_part_window = WardrobePartWindow("Coats", self.database.get_from_db("Coat"))
+        self.wardrobe_part_window.show()
+        self.close()
+
+    def to_Shoes(self):
+        self.wardrobe_part_window = WardrobePartWindow("Shoes", self.database.get_from_db("Shoes"))
+        self.wardrobe_part_window.show()
+        self.close()
+
+    def to_Shirts(self):
+        self.wardrobe_part_window = WardrobePartWindow("Shirts", self.database.get_from_db("Shirt"))
+        self.wardrobe_part_window.show()
+        self.close()
+
+    def to_Bags(self):
+        self.wardrobe_part_window = WardrobePartWindow("Bags", self.database.get_from_db("Bag"))
+        self.wardrobe_part_window.show()
+        self.close()
+
 
 class WardrobePartWindow(QtWidgets.QMainWindow, WardrobePart.Ui_MainWindow):
     out_wardrobe_window = ""
 
-    def __init__(self, parent=None):
+    def __init__(self, label_2, arg, parent=None):
         super(WardrobePartWindow, self).__init__(parent)
         self.setupUi(self)
         self.pushButton.clicked.connect(self.from_wardrobe_part_to_wardrobe)
+        self.label_2.setText(label_2)
+        self.init_wardrobe_part(arg)
 
     def from_wardrobe_part_to_wardrobe(self):
-        self.out_wardrobe_window = MenuWindow()
+        self.out_wardrobe_window = WardrobeWindow()
         self.out_wardrobe_window.show()
         self.close()
 
-class TShirtsWindow(WardrobePartWindow):
-
-    def __init__(self, wardrobe_part_name, pic_1, pic_2, pic_3, pic_4, pic_5, parent=None):
-        super(WardrobePartWindow, self).__init__(parent)
-        self.label_2.setText("T-shirts")
-        self.label_11.setPixmap(pic_1)
-        self.label_13.setPixmap(pic_2)
-        self.label_15.setPixmap(pic_3)
-        self.label_12.setPixmap(pic_4)
-        self.label_15.setPixmap(pic_5)
+    def init_wardrobe_part(self, arg):
+        if len(arg) > 0:
+            self.label_11.setPixmap(QPixmap("Recognizer/Pictures/" + arg[0][0]).scaled(
+                self.label_11.width(), self.label_11.height()))
+        if len(arg) - 1 > 0:
+            self.label_13.setPixmap(QPixmap("Recognizer/Pictures/" + str(arg[1][0])).scaled(
+                self.label_11.width(), self.label_11.height()))
+        if len(arg) - 2 > 0:
+            self.label_15.setPixmap(QPixmap("Recognizer/Pictures/" + str(arg[2][0])).scaled(
+                self.label_11.width(), self.label_11.height()))
+        if len(arg) - 3 > 0:
+            self.label_12.setPixmap(QPixmap("Recognizer/Pictures/" + str(arg[3][0])).scaled(
+                self.label_11.width(), self.label_11.height()))
+        if len(arg) - 4 > 0:
+            self.label_14.setPixmap(QPixmap("Recognizer/Pictures/" + str(arg[4][0])).scaled(
+                self.label_11.width(), self.label_11.height()))
 
 
 class InfoWindow(QtWidgets.QMainWindow, Information.Ui_MainWindow):
