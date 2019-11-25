@@ -7,7 +7,7 @@ class ImageHandler:
     def __init__(self):
         self.model = load_model('Recognizer/fashion_mnist_dense.h5')
         self.classes = ['T-shirt', 'Trouser', 'Pullover', 'Dress', 'Coat',
-                   'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
+                   'Shoes', 'Shirt', 'Shoes', 'Bag', 'Shoes']
 
     def imageprepare(self, argv):
         im = Image.open(argv).convert('L')

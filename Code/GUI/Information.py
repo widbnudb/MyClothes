@@ -19,7 +19,7 @@ class Ui_MainWindow(object):
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(10, 10, 181, 51))
         font = QtGui.QFont()
-        font.setPointSize(20)
+        font.setPointSize(16)
         self.label.setFont(font)
         self.label.setObjectName("label")
         self.textBrowser = QtWidgets.QTextBrowser(self.centralwidget)
