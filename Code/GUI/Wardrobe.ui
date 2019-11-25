@@ -172,33 +172,33 @@
      </rect>
     </property>
     <property name="text">
-     <string>T-shirt</string>
+     <string>T-shirts</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>135</x>
+      <x>133</x>
       <y>130</y>
-      <width>56</width>
+      <width>60</width>
       <height>28</height>
      </rect>
     </property>
     <property name="text">
-     <string>Trouser</string>
+     <string>Trousers</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>259</x>
       <y>130</y>
-      <width>56</width>
+      <width>60</width>
       <height>28</height>
      </rect>
     </property>
     <property name="text">
-     <string>Pullover</string>
+     <string>Pullovers</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_5">
@@ -211,7 +211,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Dress</string>
+     <string>Dresses</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_6">
@@ -224,7 +224,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Coat</string>
+     <string>Coats</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_7">
@@ -250,7 +250,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Shirt</string>
+     <string>Shirts</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_9">
@@ -263,7 +263,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Bag</string>
+     <string>Bags</string>
     </property>
    </widget>
   </widget>

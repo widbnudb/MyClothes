@@ -15,6 +15,18 @@ class DataBase:
         self.cursor.close()
         self.conn.close()
 
+    def get_from_db(self, wardrobe_part):
+        file_name_list = []
+        query = "SELECT file_name FROM wardrobe WHERE class_name = '%s'" % (wardrobe_part)
+        self.cursor.execute(query)
+        results = self.cursor.fetchall()
+        for elem in results:
+            file_name_list.append(elem)
+        self.cursor.close()
+        self.conn.close()
+        return file_name_list
+
+
 
 
 
