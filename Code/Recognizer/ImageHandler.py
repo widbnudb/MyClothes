@@ -14,7 +14,6 @@ class ImageHandler:
         width = float(im.size[0])
         height = float(im.size[1])
         newImage = Image.new('L', (28, 28), (255))  # creates white canvas of 28x28 pixels
-
         if width > height:  # check which dimension is bigger
             # Width is bigger. Width becomes 20 pixels.
             nheight = int(round((20.0 / width * height), 0))  # resize height according to ratio width
@@ -33,15 +32,10 @@ class ImageHandler:
             img = im.resize((nwidth, 20), Image.ANTIALIAS).filter(ImageFilter.SHARPEN)
             wleft = int(round(((28 - nwidth) / 2), 0))  # caculate vertical pozition
             newImage.paste(img, (wleft, 4))  # paste resized image on white canvas
-
-        # newImage.save("sample.png
-
-        tv = list(newImage.getdata())  # get pixel values
-
+        pixel_val = list(newImage.getdata())  # get pixel values
         # normalize pixels to 0 and 1. 0 is pure white, 1 is pure black.
-        tva = [(255 - x) * 1.0 / 255.0 for x in tv]
-        print(tva)
-        return tva
+        normal_pixel_val = [(255 - x) * 1.0 / 255.0 for x in pixel_val]
+        return normal_pixel_val
 
     def recognizer(self, file_name):
         file_name = "Recognizer/Pictures/" + file_name
@@ -50,10 +44,5 @@ class ImageHandler:
         image = image.reshape(1, 784)
         prediction = self.model.predict(image)
         np.argmax(prediction)
-        print(self.classes[int(np.argmax(prediction))])
         return self.classes[int(np.argmax(prediction))]
 
-
-ImageHandler1 = ImageHandler()
-file_name = "Bruki.jpg"
-ImageHandler1.recognizer(file_name)
