@@ -17,7 +17,7 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>30</y>
       <width>91</width>
       <height>16</height>
@@ -30,9 +30,9 @@
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>100</x>
       <y>30</y>
-      <width>291</width>
+      <width>231</width>
       <height>22</height>
      </rect>
     </property>
@@ -53,10 +53,10 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>342</x>
-      <y>277</y>
-      <width>111</width>
-      <height>41</height>
+      <x>405</x>
+      <y>290</y>
+      <width>60</width>
+      <height>25</height>
      </rect>
     </property>
     <property name="text">
@@ -68,8 +68,8 @@
      <rect>
       <x>405</x>
       <y>27</y>
-      <width>61</width>
-      <height>28</height>
+      <width>60</width>
+      <height>25</height>
      </rect>
     </property>
     <property name="text">
@@ -100,6 +100,19 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>27</y>
+      <width>60</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Watch</string>
     </property>
    </widget>
   </widget>

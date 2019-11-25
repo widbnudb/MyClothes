@@ -41,12 +41,14 @@ class LoadPhotoWindow(QtWidgets.QMainWindow, LoadPhoto.Ui_MainWindow):
     def __init__(self, parent=None):
         super(LoadPhotoWindow, self).__init__(parent)
         self.setupUi(self)
+        self.pushButton_2.setEnabled(False)
         self.pushButton.clicked.connect(self.from_load_photo_to_menu)
         self.lineEdit.textChanged.connect(self.init_image_name)
-        self.lineEdit.editingFinished.connect(self.load_image)
+        self.pushButton_3.clicked.connect(self.load_image)
         self.pushButton_2.clicked.connect(self.start_recognizing_thread)
 
     def init_image_name(self):
+        self.pushButton_2.setEnabled(False)
         if self.lineEdit.text():
             self.image_name = self.image_directory + self.lineEdit.text()
 
@@ -54,6 +56,7 @@ class LoadPhotoWindow(QtWidgets.QMainWindow, LoadPhoto.Ui_MainWindow):
         pixmap = QPixmap(self.image_name)
         if not pixmap.isNull():
             self.label_3.setPixmap(pixmap.scaled(self.label_3.width(), self.label_3.height()))
+            self.pushButton_2.setEnabled(True)
         else:
             self.lineEdit.clear()
 
@@ -68,12 +71,9 @@ class LoadPhotoWindow(QtWidgets.QMainWindow, LoadPhoto.Ui_MainWindow):
         thread.join()
 
     def start_recognizing_thread(self):
-        print("1")
         image_handler = ImageHandler.ImageHandler()
         image_handler.model = self.model
-        print("2")
         result = image_handler.recognizer(self.lineEdit.text())
-        print("3")
         self.label_4.setText(str(result))
         #image_handler.addtoDB(self.image_name)
 

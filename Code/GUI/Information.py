@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
         self.textBrowser.setGeometry(QtCore.QRect(10, 60, 451, 192))
         self.textBrowser.setObjectName("textBrowser")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(342, 277, 111, 41))
+        self.pushButton.setGeometry(QtCore.QRect(405, 290, 60, 25))
         self.pushButton.setObjectName("pushButton")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
