@@ -4,7 +4,7 @@ from mysql.connector import Error
 
 class DataBase:
     def __init__(self):
-        self.conn = mysql.connector.connect(host='localhost', database='myclothes', user='Elizabeth', password='3069186El*')
+        self.conn = mysql.connector.connect(host='localhost', database='myclothes', user='Elizabeth', password='12345678')
         self.cursor = self.conn.cursor()
 
     def add_to_wardrobe(self, result, file_name):
